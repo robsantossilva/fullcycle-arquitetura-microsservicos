@@ -57,3 +57,8 @@
 - CI/CD/Testes/Ambientes
 - Comece pelas beiradas
 - Padrão estrangulamento
+
+#### 9 Caracteristicas dos Microsserviços por Martin Fowler
+
+- **Componentização via serviços:** é uma unidade de software que é substituível e atualizável independentemente. **Serviços** são componentes fora do processo que se comunicam através de requisições ou chamadas procedure call. **Serviços** possui deploy independente.
+- **Orientado pelas areas de negócio:**
