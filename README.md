@@ -61,4 +61,5 @@
 #### 9 Caracteristicas dos Microsserviços por Martin Fowler
 
 - **Componentização via serviços:** é uma unidade de software que é substituível e atualizável independentemente. **Serviços** são componentes fora do processo que se comunicam através de requisições ou chamadas procedure call. **Serviços** possui deploy independente.
-- **Orientado pelas areas de negócio:**
+- **Organizado em torno das areas de negócio:** Organizar os times por areas de negócio e não por funções
+- **Produtos e não Projetos:** 
