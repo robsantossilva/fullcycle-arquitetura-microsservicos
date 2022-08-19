@@ -62,4 +62,10 @@
 
 - **Componentização via serviços:** é uma unidade de software que é substituível e atualizável independentemente. **Serviços** são componentes fora do processo que se comunicam através de requisições ou chamadas procedure call. **Serviços** possui deploy independente.
 - **Organizado em torno das areas de negócio:** Organizar os times por areas de negócio e não por funções
-- **Produtos e não Projetos:** 
+- **Produtos e não Projetos:**
+- **Smart endpoints and dumb pipes**
+- **Governança descentralizada**
+- **Gerenciamento de dados descentralizados**
+- **Automação de Infraestrutura**
+- **Desenhado para falhar**
+- **Design evolutivo**
