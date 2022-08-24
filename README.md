@@ -113,3 +113,29 @@ Quais as praticas/estratégias para mitigar riscos e ajudar o sistema a se torna
 - Não há perda de dados no envio de uma transação se o server estiver fora
 - Servidor pode processar a transação em seu tempo quanto estiver online
 - Entender com  profundidade o message broker/sistema de stream
+
+#### Garantias de entrega: Retry
+- Linear backoff
+- Exponential backoff
+- Exponential backoff - Jitter
+
+#### Garantias de entrega: Kafka
+
+1) Producer apenas envia mensagem
+[Producer] ---> (Ack 0 : none) ---> [Broker A] Leader
+
+1) Producer envia mensagem e recebe confirmação do Leader
+[Producer] ---> (Ack 1 : Leader) ---> [Broker A] Leader
+[Producer] <------------------------------- [Broker A] Leader
+
+1) Producer envia mensagem, Leader recebe e replica para os Followers, e em seguida avisa o producer 
+[Producer] ---> (Ack -1 : Leader) ---> [Broker A] Leader
+[Broker A] ------------------------------>> [Broker B] Follower
+[Broker A] ------------------------------>> [Broker C] Follower
+[Producer] <<------------------------------ [Broker A] Leader
+
+#### Situações complexas
+- O que acontece se o message broker cair?
+- Haverá perda de mensagens?
+- Seu sistema ficará fora do ar?
+- Como garantir resiliência?
