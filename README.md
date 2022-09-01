@@ -139,3 +139,20 @@ Quais as praticas/estratégias para mitigar riscos e ajudar o sistema a se torna
 - Haverá perda de mensagens?
 - Seu sistema ficará fora do ar?
 - Como garantir resiliência?
+
+#### Transactional outbox
+Antes de mandar a mensagem para o Kafka salvar em um banco de dados.
+O Kafka confirmando o recebimento exclui o registro
+| MessageID | Key     | Topic               | Payload                 |
+| --------- | ------- | ------------------- | ----------------------- |
+| 1234      | Account | account_transaction | {"id":"1dwef1hg1e5g"... |
+
+#### Garantia de recebimento
+No RabbitMQ, após a aplicação ter tirado a mensagem para ser processada, ele exclui a mensagem.
+E se a aplicação cair e não conseguir processar? A mensagem se perdeu.
+Mas, é possivel dizer ao rabbitmq para não excluir usando o parametro:
+Auto Ack = false
+Dizer de forma manual para o RabbitMQ que a mensagem foi lida.
+
+- **Auto Ack = false** e commit manual
+- **Prefetch** alinhado a volumetria. Applicação recebe mensagens em batch
