@@ -156,3 +156,21 @@ Dizer de forma manual para o RabbitMQ que a mensagem foi lida.
 
 - **Auto Ack = false** e commit manual
 - **Prefetch** alinhado a volumetria. Applicação recebe mensagens em batch
+
+#### Microsserviços
+
+- Idempotência: É a capacidade de conseguir ligar com duplicidade de dados.
+- Independência: Ex: Banco de Dados
+- Politicas claras de fallback
+
+#### Observabilidade
+
+- APM
+- Tracing distribuido
+- Métricas personalizadas
+- Spans personalizados
+- Open Telemetry
+
+Exponential backoff and Jitter: https://aws.amazon.com/pt/blogs/architecture/exponential-backoff-and-jitter/
+Remédio ou Veneno - https://www.youtube.com/watch?v=1MkPpKPyBps
+OTEL - https://opentelemetry.io/
