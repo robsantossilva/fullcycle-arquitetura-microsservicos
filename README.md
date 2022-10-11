@@ -174,3 +174,18 @@ Dizer de forma manual para o RabbitMQ que a mensagem foi lida.
 Exponential backoff and Jitter: https://aws.amazon.com/pt/blogs/architecture/exponential-backoff-and-jitter/
 Remédio ou Veneno - https://www.youtube.com/watch?v=1MkPpKPyBps
 OTEL - https://opentelemetry.io/
+
+### 8. Coreografia vs Orquestração
+
+#### Como funciona a Coreografia?
+Coreografia é uma técnica para composição de serviços de forma distribuída e descentralizada, vista sob uma perspectiva global, onde não há um nó coordenador; cada nó sabe o que deve fazer e como colaborar com seus vizinhos na coreografia.
+- **Microsserviços Independentes**
+
+#### Dinamica de Orquestração
+A Orquestração é capaz de integrar sistemas de forma melodica e harmônica. Ela dita o ritmo da integração, invocando o serviço certo no momento certo, informando cada uma das entradas. Mas esse ‘maestro’, o nosso músico, é totalmente dependente do serviço, ao ponto de limitar-se à tarefa de realizar uma requisição e obter ou não uma resposta.
+- **Microsserviços Dependentes de um orquestrador**
+- Garante a sequencia
+- Planos de fallback
+
+#### Estratégias de APIs
+- Mini API Gateways por contexto de Microsserviços
