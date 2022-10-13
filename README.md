@@ -189,3 +189,38 @@ A Orquestração é capaz de integrar sistemas de forma melodica e harmônica. E
 
 #### Estratégias de APIs
 - Mini API Gateways por contexto de Microsserviços
+
+### 9. Patterns
+
+#### API Composition (Data)
+Implemente uma consulta definindo um API Composer, que invoca os serviços que possuem os dados e executa uma junção na memória dos resultados.
+
+Desvantagens:
+- Disponibilidade
+- Consistencia nos dados
+- Aumento na Complexidade
+- Necessidade de criar um serviço para ler outro serviço
+- Alta latência
+- Trabalhar de forma sincrona
+
+#### API Composition (Business Rules)
+Service Composer: Funciona da mesma forma que o API Composition para dados mas tratando regras de negócio.
+Pontos de alerta:
+- Pensar em resiliencia
+
+#### Decompose by business capability
+Decomposição pela capacidade de negócio
+Estratégia para descompor um monolito definindo os contexto/dominios com DDD
+
+#### Strangler application
+Modernize um aplicativo desenvolvendo incrementalmente um novo aplicativo (estrangulador) em torno do aplicativo legado. Nesse cenário, o aplicativo strangler possui uma arquitetura de microsserviço.
+- Toda nova feature será transformada em MS
+- Pegar pequenos pedaços do sistema monolitico e trsnaformar em MS
+
+**Pontos de atenção:**
+- Comunicação com o monolito
+- Maturidade da equipe - Plataforma/Cultura DevOps
+- Banco de dados -> Compartilhado no inicio e segregando aos poucos
+  - Dica: APM (Application Performance Monitoring) Ex.: NewRelic / Data Dog
+- Cada MS precisa de um APM
+- Métricas e Alarmes
