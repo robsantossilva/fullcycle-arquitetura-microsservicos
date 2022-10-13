@@ -224,3 +224,16 @@ Modernize um aplicativo desenvolvendo incrementalmente um novo aplicativo (estra
   - Dica: APM (Application Performance Monitoring) Ex.: NewRelic / Data Dog
 - Cada MS precisa de um APM
 - Métricas e Alarmes
+
+#### ACL - Anti-corruption layer
+Uma Camada Anticorrupção (ACL) é um conjunto de padrões colocados entre o modelo de domínio e outros contextos limitados ou dependências de terceiros. A intenção desta camada é prevenir a intrusão de conceitos e modelos estranhos no modelo de domínio.
+
+#### API Gateway
+Como os clientes de um aplicativo baseado em microsserviços acessam os serviços individuais?
+Implemente um API Gateway que seja o único ponto de entrada para todos os clientes.
+Ele é responsavel por implementar politicas de segurança como: Rate Limit, Modificação na request, Autenticação...
+Pode ser Stateless ou Statefull
+
+#### BFF
+Crie serviços de back-end separados para serem consumidos por aplicativos ou interfaces de front-end específicos. Esse padrão é útil quando você deseja evitar a personalização de um único back-end para várias interfaces.
+
