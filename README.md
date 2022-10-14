@@ -189,3 +189,79 @@ A Orquestração é capaz de integrar sistemas de forma melodica e harmônica. E
 
 #### Estratégias de APIs
 - Mini API Gateways por contexto de Microsserviços
+
+### 9. Patterns
+
+#### API Composition (Data)
+Implemente uma consulta definindo um API Composer, que invoca os serviços que possuem os dados e executa uma junção na memória dos resultados.
+
+Desvantagens:
+- Disponibilidade
+- Consistencia nos dados
+- Aumento na Complexidade
+- Necessidade de criar um serviço para ler outro serviço
+- Alta latência
+- Trabalhar de forma sincrona
+
+#### API Composition (Business Rules)
+Service Composer: Funciona da mesma forma que o API Composition para dados mas tratando regras de negócio.
+Pontos de alerta:
+- Pensar em resiliencia
+
+#### Decompose by business capability
+Decomposição pela capacidade de negócio
+Estratégia para descompor um monolito definindo os contexto/dominios com DDD
+
+#### Strangler application
+Modernize um aplicativo desenvolvendo incrementalmente um novo aplicativo (estrangulador) em torno do aplicativo legado. Nesse cenário, o aplicativo strangler possui uma arquitetura de microsserviço.
+- Toda nova feature será transformada em MS
+- Pegar pequenos pedaços do sistema monolitico e trsnaformar em MS
+
+**Pontos de atenção:**
+- Comunicação com o monolito
+- Maturidade da equipe - Plataforma/Cultura DevOps
+- Banco de dados -> Compartilhado no inicio e segregando aos poucos
+  - Dica: APM (Application Performance Monitoring) Ex.: NewRelic / Data Dog
+- Cada MS precisa de um APM
+- Métricas e Alarmes
+
+#### ACL - Anti-corruption layer
+Uma Camada Anticorrupção (ACL) é um conjunto de padrões colocados entre o modelo de domínio e outros contextos limitados ou dependências de terceiros. A intenção desta camada é prevenir a intrusão de conceitos e modelos estranhos no modelo de domínio.
+
+#### API Gateway
+Como os clientes de um aplicativo baseado em microsserviços acessam os serviços individuais?
+Implemente um API Gateway que seja o único ponto de entrada para todos os clientes.
+Ele é responsavel por implementar politicas de segurança como: Rate Limit, Modificação na request, Autenticação...
+Pode ser Stateless ou Statefull
+
+#### BFF
+Crie serviços de back-end separados para serem consumidos por aplicativos ou interfaces de front-end específicos. Esse padrão é útil quando você deseja evitar a personalização de um único back-end para várias interfaces.
+
+#### Bancos de dados
+- Database per Service
+- Shared database
+- Saga
+- API Composition
+- CQRS
+- Domain event
+- Event sourcing
+
+#### Relatórios e consolidação de informações
+Opções
+- Gerar o relatório em background **até que MS consolide a informação**
+- Microsserviços especifico para relatórios
+- Tabela de projeção: Alimentada constantemente e fornecendo relatórios em tempo real, consolidando informações de outros MS. [(Projection Table)](https://developer.confluent.io/patterns/table/projection-table/)
+- Trabalhar com Eventos publicando mensagens em filas especificas.
+
+#### Transactional Outbox
+Forma de garantir que mensagens não sejam perdidas se o **serviço/message broker**, responsavel por receber a mensagem, ficar indisponivel.
+Antes que o MS1 envie a mensagem ela é persitida, e em seguida enviada ao MS2. Isso garante que, se o MS2 ficar fora a mensagem pode ser reenviada novamente depois.
+
+Opções de Bancos:
+- RDBMS / Schema separado
+- KV -> DynamoDB
+- Cache -> Redis -> Persistir dados em disco caso crash
+
+SDK Interno na empresa
+- Toda requisição -> Retry -> Grava no Buffer
+- DoRequest -> Com paz de espírito :)
