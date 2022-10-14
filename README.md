@@ -237,3 +237,31 @@ Pode ser Stateless ou Statefull
 #### BFF
 Crie serviços de back-end separados para serem consumidos por aplicativos ou interfaces de front-end específicos. Esse padrão é útil quando você deseja evitar a personalização de um único back-end para várias interfaces.
 
+#### Bancos de dados
+- Database per Service
+- Shared database
+- Saga
+- API Composition
+- CQRS
+- Domain event
+- Event sourcing
+
+#### Relatórios e consolidação de informações
+Opções
+- Gerar o relatório em background **até que MS consolide a informação**
+- Microsserviços especifico para relatórios
+- Tabela de projeção: Alimentada constantemente e fornecendo relatórios em tempo real, consolidando informações de outros MS. [(Projection Table)](https://developer.confluent.io/patterns/table/projection-table/)
+- Trabalhar com Eventos publicando mensagens em filas especificas.
+
+#### Transactional Outbox
+Forma de garantir que mensagens não sejam perdidas se o **serviço/message broker**, responsavel por receber a mensagem, ficar indisponivel.
+Antes que o MS1 envie a mensagem ela é persitida, e em seguida enviada ao MS2. Isso garante que, se o MS2 ficar fora a mensagem pode ser reenviada novamente depois.
+
+Opções de Bancos:
+- RDBMS / Schema separado
+- KV -> DynamoDB
+- Cache -> Redis -> Persistir dados em disco caso crash
+
+SDK Interno na empresa
+- Toda requisição -> Retry -> Grava no Buffer
+- DoRequest -> Com paz de espírito :)
