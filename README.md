@@ -265,3 +265,19 @@ Opções de Bancos:
 SDK Interno na empresa
 - Toda requisição -> Retry -> Grava no Buffer
 - DoRequest -> Com paz de espírito :)
+
+#### Secret Manager
+Secret Manager é um sistema de armazenamento seguro e conveniente para chaves de API, senhas, certificados e outros dados confidenciais
+[hashicorp vault](https://learn.hashicorp.com/tutorials/vault/static-secrets?in=vault/secrets-management)
+
+#### Padronização de Logs
+Observabilidade / 3 vertentes:
+- **Logs**
+- Métricas
+- Tracing
+
+**Log**: Resultado de um evento.
+- Centralizar Logs (Ex.: Elastic Search)
+- Precisam estar padronizados.
+- SDK para padronizar
+- Unificação de linhas para um Log -> Logstash | Filebeat
