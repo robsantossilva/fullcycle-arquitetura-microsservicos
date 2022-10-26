@@ -265,3 +265,47 @@ Opções de Bancos:
 SDK Interno na empresa
 - Toda requisição -> Retry -> Grava no Buffer
 - DoRequest -> Com paz de espírito :)
+
+#### Secret Manager
+Secret Manager é um sistema de armazenamento seguro e conveniente para chaves de API, senhas, certificados e outros dados confidenciais
+[hashicorp vault](https://learn.hashicorp.com/tutorials/vault/static-secrets?in=vault/secrets-management)
+
+#### Padronização de Logs
+Observabilidade / 3 vertentes:
+- **Logs**
+- Métricas
+- Tracing
+
+**Log**: Resultado de um evento.
+- Centralizar Logs (Ex.: Elastic Search)
+- Precisam estar padronizados.
+- SDK para padronizar
+- Unificação de linhas para um Log -> Logstash | Filebeat
+
+#### Open Telemetry
+OTEL => Padronização de Dados de Telemetria
+**OpenTelemetry** é uma coleção de ferramentas, APIs e SDKs. 
+Use-o para instrumentar, gerar, coletar e exportar dados de telemetria: métricas, logs, rastreamentos=tracing para ajudá-lo a analisar o desempenho e o comportamento do seu software.
+
+Camada de abstração entre o vendor (NewRelic, Datadog, Elastic) e a aplicação.
+- Descentralizar
+- Padronizar
+- Segurança com dados
+
+Microsserviços <=|=> OTEL Collector <=|=> (NewRelic, Datadog, Elastic)
+
+#### Service Template
+O Modelo base com padrão de implementação
+KIT de Desenvolvimento / SDK
+- Logs
+- Outbox
+- Gerenciamento de password
+- Como integrar com message brokers
+- Observabilidade
+- CQRS
+- Multiplos bancos de dados
+- Audit
+- Jobs
+- Times de plataforma / sustentação
+- Ajudar outros devs a ter padrões
+- Ex.: Fury / SaaS / Conta Azul
