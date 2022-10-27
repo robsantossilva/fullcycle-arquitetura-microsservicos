@@ -309,3 +309,12 @@ KIT de Desenvolvimento / SDK
 - Times de plataforma / sustentação
 - Ajudar outros devs a ter padrões
 - Ex.: Fury / SaaS / Conta Azul
+
+### C4 Model
+https://c4model.com/
+
+#### Entendendo os 4 niveis
+- Nivel 1: Context
+- Nivel 2: Containers
+- Nivel 3: Components
+- Nivel 4: Code
