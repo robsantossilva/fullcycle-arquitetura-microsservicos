@@ -320,3 +320,6 @@ https://c4model.com/
 - Nivel 4: Code
 
 https://github.com/plantuml-stdlib/C4-PlantUML
+
+### PlantUML
+![](./plantuml.png)
